@@ -2,6 +2,11 @@
 
 Assets Used
 
-https://kamelionn.itch.io/remington-model-10 (Shotgun)
+https://archive94.itch.io/psx-colt-pistol (pistol)
 
-https://elbolilloduro.itch.io/characters-psx (player)
+https://bigjigglydev.itch.io/psx-style-ar-pack (AR)
+
+https://bigjigglydev.itch.io/shotgun-pack-psx-style (shotgun)
+
+https://foxh3ad.itch.io/lpammo (ammo)
+
