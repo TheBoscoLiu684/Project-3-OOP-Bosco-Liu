@@ -4,28 +4,27 @@ using UnityEngine.InputSystem;
 public class CameraPivot : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public Transform cameraPivot;
+    public Transform player;
     public float sens = 0.1f;
-    public float minY = -70f;
-    public float maxY = 70f;
-    private float camYLimit;
-    private float camXLimit;
+    public float camYLimit;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        camXLimit = transform.localEulerAngles.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 theMouse = Mouse.current.delta.ReadValue();
-        float mouseX = theMouse.x * sens;
-        float mouseY = theMouse.y * sens;
-        camXLimit += mouseX;
+        Vector2 mouse = Mouse.current.delta.ReadValue();
+        float mouseX = mouse.x * sens;
+        float mouseY = mouse.y * sens;
+
+        player.Rotate(Vector3.up * mouseX);
+
         camYLimit -= mouseY;
-        camYLimit = Mathf.Clamp(camYLimit, minY, maxY);
-        transform.localRotation = Quaternion.Euler(camYLimit, camXLimit, 0f);
+        camYLimit = Mathf.Clamp(camYLimit, -70f, 70f);
+
+        transform.localRotation = Quaternion.Euler(camYLimit, 0f, 0f);
     }
 }
